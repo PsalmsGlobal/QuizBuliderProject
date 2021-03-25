@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="global-container bg-dark">
+  <div class=" row justify-content-center">
+    <div class="col-4">
+    <br><br><br><br><br>
+  <div class="card text-center bg-transparent" style="width: 30rem;">
+    <div class="card-body ">
+      <h1 class="card-title text-light">Rᴇɢɪsᴛᴇʀ As</h1>
+      <h4 class="card-text text-light">𝑆𝑒𝑙𝑒𝑐𝑡 𝑏𝑒𝑙𝑜𝑤 𝑡ℎ𝑒 𝑡𝑦𝑝𝑒 𝑜𝑓 𝑎𝑐𝑐𝑜𝑢𝑛𝑡 𝑦𝑜𝑢 𝑤𝑎𝑛𝑡 𝑡𝑜 𝑟𝑒𝑔𝑖𝑠𝑡𝑒𝑟.</h4>
+      <div class="text-center mt-3 d-grid gap-2 col-6 mx-auto ">
+        <a href="{% url 'student_signup' %}" class="btn btn-success rounded-pill " role="button">𝑆𝑡𝑢𝑑𝑒𝑛𝑡</a>
+        </div>
+        <div class="text-center mt-2 d-grid gap-2 col-6 mx-auto ">
+        <a href="{% url 'teacher_signup'%}" class="btn btn-primary rounded-pill" role="button">𝑇𝑒𝑎𝑐ℎ𝑒𝑟</a>
+  </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
+<p class="text-center text-secondary">code@GPG 2021</p>
+<br>
+</div>
+</div>
+ 	  
+{% endblock %}

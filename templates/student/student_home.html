@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-2 ms-auto me-auto md-auto">
+        <a><strong>The Test</strong></a>
+        <p><i>The test contains 10 questions and there is no time limit.<br>
+            The test is not official, it's just a nice way to see how much you know, or don't know, about Django.</i></p>
+        <a><strong>Count Your Score</strong></a>
+        <p><i>You will get 10 points for every correct answer. At the end of the Quiz, your total score will be displayed. Maximum score is 100 points.</i></p>
+        <a><strong>Instruction</strong></a>
+        <p><i>Your answer can't be change. Once you click your choice then it would be.<b>
+            Choose carefully.!</i></p>
+        <p><strong><h3>Select Course to take</h3></strong></p>
+        <div class="row text-center">
+            {% for course in courses %}
+            <div class="mt-2 row row-cols-2 text-center">
+                <a href="/{{course.id}}"  class="ms-5 me-5 mt-2 btn btn-info rounded-pill">{{course.course_name}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

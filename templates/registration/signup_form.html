@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="global-container bg-dark">
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+        <h2 class="text-center">𝑅𝐸𝐺𝐼𝑆𝑇𝐸𝑅</h2>
+        <div class="card-text mt-3">
+          <form method="post" novalidate="">
+            {% csrf_token %}
+            {{ form|crispy }} 
+          <div class="text-center ">
+            <button type="submit" class="btn btn-dark rounded-pill">𝑆𝑖𝑔𝑛 𝑈𝑝</button>
+          </div>
+            <div class="sign-up text-center">
+              <div class="text-dark mt-2">𝑫𝒐𝒏❜𝒕 𝒉𝒂𝒗𝒆 𝒂𝒏 𝒂𝒄𝒄𝒐𝒖𝒏𝒕❓</div> <a href="{% url 'login' %}"><strong>𝑆𝑖𝑔𝑛-𝐼𝑛</strong></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <br><br>
+  <p class="text-center text-secondary">code@GPG 2021</p>
+  <br>  
+</div>     
+{% endblock %}
