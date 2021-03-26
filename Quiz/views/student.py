@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 
 from ..forms import StudentSignUpForm
-from ..models import  Student,  User, Profile
+from ..models import User, Profile
 from .quiz import *
 import uuid
 from django.contrib import messages
