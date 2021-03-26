@@ -16,7 +16,6 @@ class Course(models.Model):
     def __str__(self):
         return self.course_name
 
-
 class Question(models.Model):
 
     course = models.ForeignKey(Course, on_delete=models.CASCADE)

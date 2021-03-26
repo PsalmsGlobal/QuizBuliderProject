@@ -87,44 +87,7 @@ class TeacherSignUpForm(UserCreationForm):
         return user
 
 
-class CreateQuestionForm(forms.ModelForm):
+class CreateQuestionForm(ModelForm):
     class Meta:
         model = Question
-        fields = ('course', 'question', 'answer', 'marks', 'option1', 'option2', 'option3', 'option4')
-        
-        widgets = {
-            'course': forms.TextInput(attrs={
-                'class': 'form-control',
-                'rows': 3,
-                'placeholder': 'Select Course'
-            }),
-            'question': forms.Textarea(attrs={
-                'class': 'form-control',
-                'rows': 3,
-                'placeholder': 'Enter your Poll Question'
-            }),
-            'answer': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Answer'
-            }),
-            'marks': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'marks'
-            }),
-            'option1': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Option 1'
-            }),
-            'option2': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Option 2'
-            }),
-            'option3': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Option 3'
-            }),
-            'option4': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Enter Option 4'
-            }),
-        }
+        fields = ['course', 'question', 'marks', 'answer', 'option1', 'option2', 'option3', 'option4']

@@ -186,27 +186,19 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Available Polls</h3>
+                        <h3 class="card-title">Available Question</h3>
                     </div>
       
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <strong>Which language is easier to learn?</strong>
-                                <span class="pull-right">
-                                    <a href="#" class="btn btn-info btn-xs">Vote</a> &nbsp;
-                                    <a href="#" class="btn btn-default btn-xs">View Results</a> &nbsp;
-                                </span>
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Which operating system do you use?</strong>
-                                <span class="float-right">
-                                    <a href="#" class="btn btn-info btn-xs">Vote</a> &nbsp;
-                                    <a href="#" class="btn btn-default btn-xs">View Results</a> &nbsp;
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="list-group">
+                      {% for question in questions %}
+                      <li class="list-group-item">
+                          <strong>{{ question.question }}</strong>
+                          <span class="pull-right">
+                            
+                          </span>
+                      </li>
+                      {% endfor %}
+                  </ul>
       
                 </div>
             </div>

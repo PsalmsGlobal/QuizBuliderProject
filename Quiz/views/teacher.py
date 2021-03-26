@@ -47,22 +47,25 @@ class TeacherSignUpView(CreateView):
 
 @login_required
 def teacher_home(request):
-    context = {}
     questions = Question.objects.all()
-    context['questions'] = questions
+
+    context = {
+        'questions' : questions
+    }
     return render(request, 'teacher/teacher_home.html', context)
 
 @login_required
 def create(request):
-
     if request.method == 'POST':
         form = CreateQuestionForm(request.POST)
+
         if form.is_valid():
             print(form.cleaned_data['question'])
             form.save()
-            return redirect('auth_home')
+
+            return redirect("teacher:teacher_home")
     else:
         form = CreateQuestionForm()
 
-    context = {'form' : form }
+    context = {'form' : form}
     return render(request, 'teacher/create.html', context)

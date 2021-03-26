@@ -187,58 +187,79 @@ body {
     <div class="container-fluid">
   
       <!-- Main component for a primary marketing message or call to action -->
-      {% block content %}
+      {% load widget_tweaks %}
+      {% block main %}
       <div class="jumbotron">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
               <div class="card card-default">
                   <div class="card-header">
-                      <h3 class="card-title">Create A New Poll</h3>
+                      <h3 class="card-title">ADD QUESTION</h3>
                   </div>
                       
                   <form method="POST">
-                      {% csrf_token %}
-      
-      
-                      <div class="card-body">
-                          <div class="row">
-                              <div class="col-lg-12">
-                                  <div class="form-group">
-                                      {{ form.question.label_tag }}
-                                      {{ form.question }}
-                                  </div>
-                              </div>
-                          </div>
-      
-                          <div class="row">
-                              <div class="col-lg-4">
-                                  <div class="form-group">
-                                      {{ form.option1.label_tag }}
-                                      {{ form.option1 }}
-                                  </div>
-                              </div>
-                              <div class="col-lg-4">
-                                  <div class="form-group">
-                                      {{ form.option2.label_tag }}
-                                      {{ form.option2 }}
-                                  </div>
-                              </div>
-                              <div class="col-lg-4">
-                                  <div class="form-group">
-                                      {{ form.option3.label_tag }}
-                                      {{ form.option3 }}
-                                  </div>
-                              </div>
-                          </div>
-      
-                          <div class="row">
-                              <hr />
-                              <div class="col-lg-4">
-                                  <input type="submit" class="btn btn-info" value="create"/>
-                              </div>
+                    {% csrf_token %}
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                              <div class="form-group">
+                                <label for="course">Select Course</label>
+                                {% render_field form.course rows="3" class="form-control" %}
+                            </div>
+                                <div class="form-group">
+                                    <label for="question">Enter Question</label>
+                                    {% render_field form.question rows="3" class="form-control" %}
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="marks">Marks</label>
+                                {% render_field form.marks class="form-control" %}
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                              <label for="answer">Answer</label>
+                              {% render_field form.answer class="form-control" %}
                           </div>
                       </div>
-                  </form>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="option1">Option 1</label>
+                                    {% render_field form.option1 class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="option2">Option 2</label>
+                                    {% render_field form.option2 class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="option3">Option 3</label>
+                                    {% render_field form.option3 class="form-control" %}
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                  <label for="option4">Option 4</label>
+                                  {% render_field form.option4 class="form-control" %}
+                              </div>
+                          </div>
+                        </div>
+    
+                        <div class="row">
+                            <hr />
+                            <div class="col-lg-4">
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
       
               </div>
           </div>
