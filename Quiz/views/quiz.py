@@ -35,7 +35,7 @@ def verify(request , auth_token):
             messages.success(request, 'Your account has been verified.')
             return redirect('success')
         else:
-            return redirect('/error')
+            return redirect('/error/')
 
         return redirect('/success')
 
@@ -126,11 +126,9 @@ class AboutView(View):
     def get(self, request):
         return render(request, 'quiz/about.html')
 
-@login_required
-def success (self):
+def success (request):
     return render(request, 'registration/success.html')
 
-@login_required
 def token_send(request):
     return render(request, 'registration/token_send.html')
 

@@ -28,3 +28,4 @@ class UserAdmin(admin.ModelAdmin):
   list_display = ( 'username', 'first_name', 'last_name', 'email','is_student', 'is_teacher',)
   list_filter = ('is_student', 'is_teacher')
 
+

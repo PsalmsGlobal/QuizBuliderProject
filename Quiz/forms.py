@@ -4,7 +4,7 @@ from .models import Question
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from .models import Question
-from .models import User
+from .models import User, Student
 
 class StudentSignUpForm(UserCreationForm):
     email       = forms.EmailField(label="", widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐸𝑚𝑎𝑖𝑙 𝐴𝑑𝑑𝑟𝑒𝑠𝑠'}))
