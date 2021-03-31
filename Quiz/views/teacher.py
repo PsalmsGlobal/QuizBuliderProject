@@ -5,11 +5,10 @@ from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import CreateView
-from ..models import Question
 from ..forms import TeacherSignUpForm
-from ..models import Question, User, Profile
+from ..models import Question, User, Profile, Course
 from .quiz import *
-from ..forms import CreateQuestionForm
+from ..forms import CreateQuestionForm, CourseForm
 import uuid
 from django.contrib import messages
 
@@ -46,13 +45,21 @@ class TeacherSignUpView(CreateView):
         return render(request , 'registration/signup_form.html')
 
 @login_required
-def teacher_home(request):
+def view_question(request):
     questions = Question.objects.all()
 
     context = {
         'questions' : questions
     }
-    return render(request, 'teacher/teacher_home.html', context)
+    return render(request, 'teacher/view_question.html', context)
+
+def view_course(request):
+    course_names = Course.objects.all()
+
+    context = {
+        'course_names' : course_names
+    }
+    return render(request, 'teacher/view_course.html', context)
 
 @login_required
 def create(request):
@@ -63,9 +70,52 @@ def create(request):
             print(form.cleaned_data['question'])
             form.save()
 
-            return redirect("teacher:teacher_home")
+            return redirect("teacher:question")
     else:
         form = CreateQuestionForm()
 
     context = {'form' : form}
     return render(request, 'teacher/create.html', context)
+
+def add_course(request):
+    
+    if request.method=='POST':
+        form=CourseForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data['course_name'])        
+            form.save()
+
+            return redirect("teacher:course")
+
+    else:
+        form=CourseForm()
+    context = {'form' : form}
+    return render(request,'teacher/add_course.html',context)
+
+def question(request):
+    return render(request, 'teacher/question.html')
+
+def teacher_home(request):
+    dict={
+    
+    'total_course':Course.objects.all().count(),
+    'total_question':Question.objects.all().count(),
+    'total_student':Student.objects.all().count()
+    }
+    return render(request,'teacher/teacher_home.html',context=dict)
+
+def course(request):
+    return render(request, 'teacher/course.html')
+
+def delete(request, id):
+	course = Course.objects.get(pk=id)
+	course.delete()
+	messages.success(request, ('Item Has Been Deleted'))
+	return redirect('teacher/view_course')
+
+def view_student(request):
+    return render(request, 'teacher/view_student.html')
+
+def feature(request):
+    return render(request, 'teacher/feature.html')
+

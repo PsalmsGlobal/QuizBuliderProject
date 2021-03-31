@@ -46,6 +46,12 @@ class StudentSignUpView(CreateView):
         
 @login_required
 def student_home(request):
+    return render(request, 'student/student_home.html')
+
+def instruction(request):
+    return render(request, 'student/instruction.html')
+
+def take_quiz(request):
     courses = Course.objects.all()
     context = {'courses': courses}
-    return render(request, 'student/student_home.html', context)
+    return render(request, 'student/take_quiz.html', context)

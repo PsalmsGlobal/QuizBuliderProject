@@ -36,10 +36,9 @@
                     <img src="{% static 'images/usermenu.png' %}">
                   </a>
                   <ul class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item text-light" href="{% url 'features' %}"><img src="{% static 'images/user.png' %}">Profile Features</a></li>
                     <li><a class="dropdown-item text-light" href="{%url 'password_change'%}">Change password</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'about' %}"> <img src="{% static 'images/about.png' %}">About</a></li>
-                    <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.  png' %}">Log Out</a></li>
+                    <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.png' %}">Log Out</a></li>
                  
                   </ul>
             {% endif %}
@@ -154,28 +153,25 @@ body {
       <ul class="sidebar-navigation">
         <br><br><br><br>
         <li>
-          <a href="{% url 'teacher:teacher_home' %}">
-            <h1 class=" fa fa-home " ></h1><h5>Home</h5> 
+          <a href="{% url 'teacher:teacher_home' %}"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer-alt" aria-hidden="true"></h1> <h5>Home</h5> 
+          </a>
+        </li>
+        
+        <li>
+          <a href="{% url 'teacher:question' %}"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer-alt" aria-hidden="true"></h1> <h5>Questions</h5> 
           </a>
         </li>
         <li>
-          <a href="{% url 'teacher:create' %}">
-            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Add Question</h5> 
+          <a href="{% url 'teacher:course' %}"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Course</h5> 
           </a>
         </li>
+        
         <li>
-          <a href="#">
-            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>View Score</h5> 
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>View Student</h5> 
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Attendance</h5> 
+          <a href="{% url 'teacher:view_student' %}"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Student</h5> 
           </a>
         </li>
       </ul>
@@ -185,6 +181,8 @@ body {
   <div class="content-container">
     
     <div class="container-fluid">
+
+      
   
       <!-- Main component for a primary marketing message or call to action -->
       {% load widget_tweaks %}
@@ -193,72 +191,76 @@ body {
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
               <div class="card card-default">
-                  <div class="card-header">
-                      <h3 class="card-title">ADD QUESTION</h3>
+                  <div class="card-header bg-secondary">
+                      <h3 class="card-title text-light text-center ">𝐀𝐃𝐃 𝐐𝐔𝐄𝐒𝐓𝐈𝐎𝐍</h3>
                   </div>
                       
                   <form method="POST">
                     {% csrf_token %}
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-12">
-                              <div class="form-group">
-                                <label for="course">Select Course</label>
+                            <div class="col-4">
+                              <div class="form-group ms-3 mt-2 text-secondary">
+                                <label for="course">𝑆𝑒𝑙𝑒𝑐𝑡 𝐶𝑜𝑢𝑟𝑠𝑒</label>
                                 {% render_field form.course rows="3" class="form-control" %}
                             </div>
-                                <div class="form-group">
-                                    <label for="question">Enter Question</label>
-                                    {% render_field form.question rows="3" class="form-control" %}
+                          </div>
+                            <div class="col-lg-11">
+                                <div class="form-group ms-3 mt-2 text-secondary">
+                                    <label for="question">𝐸𝑛𝑡𝑒𝑟 𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛</label>
+                                    {% render_field form.question rows="3" class="form-control " placeholder="𝘛𝘺𝘱𝘦 𝘠𝘰𝘶𝘳 𝘘𝘶𝘦𝘴𝘵𝘪𝘰𝘯 𝘏𝘦𝘳𝘦..." %}
                                 </div>
                             </div>
                         </div>
     
                         <div class="row">
-                          <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="marks">Marks</label>
-                                {% render_field form.marks class="form-control" %}
+                          <div class="col-lg-2">
+                            <div class="form-group ms-3 mt-2 text-secondary">
+                                <label for="marks">𝑀𝑎𝑟𝑘𝑠</label>
+                                {% render_field form.marks class="form-control" placeholder="10 " %}
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                              <label for="answer">Answer</label>
-                              {% render_field form.answer class="form-control" %}
+                        <div class="col-lg-2">
+                          <div class="form-group ms-3 mt-2 text-secondary">
+
+                              <label for="answer">𝐴𝑛𝑠𝑤𝑒𝑟</label>
+                              {% render_field form.answer class="form-control" placeholder="𝑁𝑢𝑚𝑒𝑟𝑖𝑐 𝑂𝑛𝑙𝑦" %}
                           </div>
                       </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="option1">Option 1</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="form-group ms-3 mt-2 text-secondary">
+                                    <label class="ms-2" for="option1">𝑂𝑝𝑡𝑖𝑜𝑛 𝐴</label>
                                     {% render_field form.option1 class="form-control" %}
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="option2">Option 2</label>
+                            <div class="col-lg-5">
+                                <div class="form-group ms-3 mt-2 text-secondary">
+                                    <label class="ms-2" for="option2">𝑂𝑝𝑡𝑖𝑜𝑛 𝐵</label>
                                     {% render_field form.option2 class="form-control" %}
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="option3">Option 3</label>
+                            <div class="col-lg-5">
+                                <div class="form-group ms-3 mt-2 text-secondary">
+                                    <label class="ms-2" for="option3">𝑂𝑝𝑡𝑖𝑜𝑛 𝐶</label>
                                     {% render_field form.option3 class="form-control" %}
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                              <div class="form-group">
-                                  <label for="option4">Option 4</label>
+                            <div class="col-lg-5">
+                              <div class="form-group ms-3 mt-2 text-secondary">
+                                  <label class="ms-2" for="option4">𝑂𝑝𝑡𝑖𝑜𝑛 𝐷</label>
                                   {% render_field form.option4 class="form-control" %}
                               </div>
                           </div>
                         </div>
-    
                         <div class="row">
-                            <hr />
-                            <div class="col-lg-4">
-                                <button type="submit" class="btn btn-info">Submit</button>
+                            <div class="col-lg-4 mt-3 ms-3">
+                                <button  class="btn btn-info" data-bs-toggle="modal" data-bs-target="#closeModal">𝑆𝑢𝑏𝑚𝑖𝑡</button>
                             </div>
                         </div>
                     </div>
+                    <br>
                 </form>
       
               </div>
@@ -274,7 +276,28 @@ body {
     
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+    <div class="modal" id="closeModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+          </div>
+          <div class="modal-body">
+            <p><h2>𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛 𝐴𝑑𝑑𝑒𝑑!</h2></p>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          setTimeout(function () {
+            $("#closeModal").modal('show');
+          }, 3000);
+        });
+    </script>
 
   </body>
 </html>

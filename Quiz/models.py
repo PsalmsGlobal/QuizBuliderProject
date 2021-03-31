@@ -12,6 +12,7 @@ class User(AbstractUser):
 
 class Course(models.Model):
     course_name = models.CharField(max_length=50)
+    marks = models.IntegerField(default=10)
 
     def __str__(self):
         return self.course_name
@@ -19,13 +20,13 @@ class Course(models.Model):
 class Question(models.Model):
 
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    question = models.TextField(max_length=200)
+    question = models.CharField(max_length=200)
     answer = models.IntegerField()
     option1 = models.CharField(max_length=200)
     option2 = models.CharField(max_length=200)
     option3 = models.CharField(max_length=200, blank=True)
     option4 = models.CharField(max_length=200, blank=True)
-    marks = models.IntegerField(default=10)
+    marks = models.PositiveIntegerField(default=10)
     
     def __str__(self):
         return self.question

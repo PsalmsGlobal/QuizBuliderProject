@@ -115,13 +115,6 @@ def home(request):
 def error_page(request):
     return  render(request , 'registration/error.html')
 
-class FeaturesView(View):
-    def get (self, request):
-        f_name = request.POST.get('f_name')
-        l_name = request.POST.get('l_name')
-        return render(request, 'quiz/features.html', {'name': f_name}, {'name' : l_name})
-
-
 class AboutView(View):
     def get(self, request):
         return render(request, 'quiz/about.html')

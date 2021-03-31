@@ -1,6 +1,7 @@
 from django.contrib import admin
 #from .models import*
 from .import models
+from .models import Teacher, Student
 
 
 
@@ -25,7 +26,10 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
-  list_display = ( 'username', 'first_name', 'last_name', 'email','is_student', 'is_teacher',)
+  list_display = ( 'username', 'first_name', 'last_name', 'email', 'is_student', 'is_teacher',)
   list_filter = ('is_student', 'is_teacher')
+
+admin.site.register(Student)
+admin.site.register(Teacher)
 
 
