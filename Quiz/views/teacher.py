@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import CreateView
@@ -61,6 +62,11 @@ def view_course(request):
     }
     return render(request, 'teacher/view_course.html', context)
 
+def delete_course_view(request,pk):
+    course_names = Course.objects.get(id=pk)
+    course_names.delete()
+    return HttpResponseRedirect('teacher/view_course.html')
+
 @login_required
 def create(request):
     if request.method == 'POST':
@@ -107,15 +113,11 @@ def teacher_home(request):
 def course(request):
     return render(request, 'teacher/course.html')
 
-def delete(request, id):
-	course = Course.objects.get(pk=id)
-	course.delete()
-	messages.success(request, ('Item Has Been Deleted'))
-	return redirect('teacher/view_course')
-
 def view_student(request):
     return render(request, 'teacher/view_student.html')
 
 def feature(request):
     return render(request, 'teacher/feature.html')
+
+
 

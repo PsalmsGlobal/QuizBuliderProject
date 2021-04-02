@@ -34,7 +34,7 @@
                   </a>
                   <ul class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
                    
-                    <li><a class="dropdown-item text-light" href="{%url 'password_change'%}">Change password</a></li>
+                    <li><a class="dropdown-item text-light" href="{%url 'change_password'%}"><img src="{% static 'images/' %}">Change password</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'about' %}"> <img src="{% static 'images/about.png' %}">About</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.png' %}">Log Out</a></li>
                  
@@ -184,16 +184,16 @@
                 <div class="col-sm-5 ms-5">
                   <div class="card rounded-pill">
                     <div class="card-body bg-info rounded-pill text-center">
-                        <a href="{% url 'teacher:create' %}"  class="text-light" style="text-decoration: none ;">➕ Add Question</a>
-                        <br><br> <br><br> <br>
+                        <a href="{% url 'teacher:create' %}"  class="text-dark  " style="text-decoration: none ;"><h5>➕𝑨𝒅𝒅 𝑸𝒖𝒆𝒔𝒕𝒊𝒐𝒏</h5></a>
+                        <br><br> <br><br>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-5">
                   <div class="card rounded-pill ">
                     <div class="card-body bg-success rounded-pill text-center">
-                        <a href="{% url 'teacher:view_question' %}" class="text-light" style="text-decoration: none ;">👁 View Question</a>
-                        <br><br> <br><br> <br>
+                        <a href="{% url 'teacher:view_question' %}" class="text-light" style="text-decoration: none ;"><h5>👁𝑽𝒊𝒆𝒘 𝑸𝒖𝒆𝒔𝒕𝒊𝒐𝒏</h5></a>
+                        <br><br> <br><br>
                     </div>
                   </div>
                 </div>

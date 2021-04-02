@@ -36,7 +36,7 @@
                     <img src="{% static 'images/usermenu.png' %}">
                   </a>
                   <ul class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item text-light" href="{%url 'password_change'%}">Change password</a></li>
+                    <li><a class="dropdown-item text-light" href="{%url 'change_password'%}"><img src="{% static 'images/' %}">Change password</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'about' %}"> <img src="{% static 'images/about.png' %}">About</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.png' %}">Log Out</a></li>
                  
@@ -201,30 +201,31 @@ body {
                         <div class="row">
                             <div class="col-4">
                               <div class="form-group ms-3 mt-2 text-secondary">
-                                <label for="course">𝑆𝑒𝑙𝑒𝑐𝑡 𝐶𝑜𝑢𝑟𝑠𝑒</label>
-                                {% render_field form.course rows="3" class="form-control" %}
+                                <label class="ms-2" for="course">𝑆𝑒𝑙𝑒𝑐𝑡 𝐶𝑜𝑢𝑟𝑠𝑒</label>
+                                {% render_field form.course rows="3" class="form-control form-control-sm" %}
                             </div>
                           </div>
-                            <div class="col-lg-11">
-                                <div class="form-group ms-3 mt-2 text-secondary">
-                                    <label for="question">𝐸𝑛𝑡𝑒𝑟 𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛</label>
-                                    {% render_field form.question rows="3" class="form-control " placeholder="𝘛𝘺𝘱𝘦 𝘠𝘰𝘶𝘳 𝘘𝘶𝘦𝘴𝘵𝘪𝘰𝘯 𝘏𝘦𝘳𝘦..." %}
-                                </div>
-                            </div>
                         </div>
+                            <div class=" mb-3 col-lg-11">
+                                <div class="form-group ms-3 mt-2 text-secondary">                                
+                                    <label for="question">𝐸𝑛𝑡𝑒𝑟 𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛</label>
+                                  {% render_field form.question class="form-control" id="question" placeholder="𝑌𝑜𝑢𝑟 𝑇𝑒𝑥𝑡 𝐻𝑒𝑟𝑒..."%}
+                                </div>
+                              </div>
+                        
     
                         <div class="row">
                           <div class="col-lg-2">
                             <div class="form-group ms-3 mt-2 text-secondary">
-                                <label for="marks">𝑀𝑎𝑟𝑘𝑠</label>
-                                {% render_field form.marks class="form-control" placeholder="10 " %}
+                                <label class="ms-2" for="marks">𝑀𝑎𝑟𝑘𝑠</label>
+                                {% render_field form.marks class="form-control form-control-sm" placeholder="10 "  %}
                             </div>
                         </div>
                         <div class="col-lg-2">
                           <div class="form-group ms-3 mt-2 text-secondary">
 
-                              <label for="answer">𝐴𝑛𝑠𝑤𝑒𝑟</label>
-                              {% render_field form.answer class="form-control" placeholder="𝑁𝑢𝑚𝑒𝑟𝑖𝑐 𝑂𝑛𝑙𝑦" %}
+                              <label class="ms-2" for="answer">𝐴𝑛𝑠𝑤𝑒𝑟</label>
+                              {% render_field form.answer class="form-control form-control-sm" placeholder="𝑁𝑢𝑚𝑒𝑟𝑖𝑐 𝑂𝑛𝑙𝑦" %}
                           </div>
                       </div>
                         </div>
@@ -232,25 +233,25 @@ body {
                             <div class="col-lg-5">
                                 <div class="form-group ms-3 mt-2 text-secondary">
                                     <label class="ms-2" for="option1">𝑂𝑝𝑡𝑖𝑜𝑛 𝐴</label>
-                                    {% render_field form.option1 class="form-control" %}
+                                    {% render_field form.option1 class="form-control form-control-sm" %}
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group ms-3 mt-2 text-secondary">
                                     <label class="ms-2" for="option2">𝑂𝑝𝑡𝑖𝑜𝑛 𝐵</label>
-                                    {% render_field form.option2 class="form-control" %}
+                                    {% render_field form.option2 class="form-control form-control-sm" %}
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group ms-3 mt-2 text-secondary">
                                     <label class="ms-2" for="option3">𝑂𝑝𝑡𝑖𝑜𝑛 𝐶</label>
-                                    {% render_field form.option3 class="form-control" %}
+                                    {% render_field form.option3 class="form-control form-control-sm" %}
                                 </div>
                             </div>
                             <div class="col-lg-5">
                               <div class="form-group ms-3 mt-2 text-secondary">
                                   <label class="ms-2" for="option4">𝑂𝑝𝑡𝑖𝑜𝑛 𝐷</label>
-                                  {% render_field form.option4 class="form-control" %}
+                                  {% render_field form.option4 class="form-control form-control-sm" %}
                               </div>
                           </div>
                         </div>

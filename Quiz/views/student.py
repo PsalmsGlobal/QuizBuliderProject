@@ -51,6 +51,9 @@ def student_home(request):
 def instruction(request):
     return render(request, 'student/instruction.html')
 
+def features(request):
+    return render(request, 'student/features.html')
+
 def take_quiz(request):
     courses = Course.objects.all()
     context = {'courses': courses}

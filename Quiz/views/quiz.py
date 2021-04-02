@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
@@ -15,10 +16,15 @@ from django.contrib import messages
 from ..models import Profile
 from ..forms import CreateQuestionForm
 from ..models import Question
+from django.urls import reverse_lazy
 from ..forms import* 
 from ..models import* 
 import json
 import uuid
+
+# class PasswordsChangeView(PasswordChangeView):
+#     form_class = PasswordChangeForm
+#     success_url = reverse_lazy('home')
 
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
@@ -129,4 +135,23 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('signup')
+
+
+def change_password(request):
+	if request.method == 'POST':
+		form = PasswordChangeForm(data=request.POST, user= request.user)
+		if form.is_valid():
+			form.save()
+			messages.success(request,('You Have Edited Your Password...'))
+			return redirect('changepassword_success')
+	else:
+		form = PasswordChangeForm(user= request.user)
+
+	context = {'form': form}
+	return render(request, 'change_password.html', context)
+
+def changepassword_success(request):
+    return render(request, 'changepassword_success.html')
+
+
 

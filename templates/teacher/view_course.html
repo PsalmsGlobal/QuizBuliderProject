@@ -35,7 +35,7 @@
                   </a>
                   <ul class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
                    
-                    <li><a class="dropdown-item text-light" href="{%url 'password_change'%}">Change password</a></li>
+                    <li><a class="dropdown-item text-light" href="{%url 'change_password'%}"><img src="{% static 'images/' %}">Change password</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'about' %}"> <img src="{% static 'images/about.png' %}">About</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.png' %}">Log Out</a></li>
                  
@@ -194,7 +194,8 @@
                       <li class="list-group-item">
                           <strong>{{ course_name.course_name }}</strong>
                           <span class="pull-right">
-                            <a href="" value="delete_course" class="btn btn-danger rounded-pill btn-sm ms-3" style="float: right;">🗑️</a>
+                            <a class="text-center text-light"><i class="fas fa-book f-left"></i><span>{{total_question}}</span></a>
+                            <a href="{% url 'teacher:delete-course' course_names.id  %}" value="delete_course" class="btn btn-danger rounded-pill btn-sm ms-3" style="float: right;">🗑️</a>
                             <a href="" class="btn btn-primary rounded-pill btn-sm" style="float: right;"><strong>👁</strong></a>
                           </span>
                       </li>

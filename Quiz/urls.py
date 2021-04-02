@@ -17,6 +17,9 @@ path('api/<id>', api_question, name="api_question"),
 path('view_score', view_score, name="view_score"),
 path('<id>', take_quiz, name="take_quiz"),
 path('error/' , error_page , name="error"),
+path('change_password/', change_password, name= 'change_password'),
+path('changepassword_success/', changepassword_success, name='changepassword_success'),
+
     path('', quiz.home, name='home'),
 
     path('teacher/', include(([
@@ -29,12 +32,13 @@ path('error/' , error_page , name="error"),
         path('view_course/', teacher.view_course, name='view_course'),
         path('view_student/', teacher.view_student, name='view_student'),
         path('feature/', teacher.feature, name='feature'),
-        #path('delete_course/<int:id>', teacher.delete, name="delete_course"),
+        path('delete-course/<int:pk>', teacher.delete_course_view,name='delete-course'),
     ],  'quiz'), namespace='teacher')),  
     
     path('student/', include(([
         path('', student.student_home, name='student_home'),
         path('take_quiz/', student.take_quiz, name='take_quiz'),
         path('instruction/', student.instruction, name='instruction'),
+        path('features/', student.features, name='features'),
     ],  'quiz'), namespace='student')),    
 ]

@@ -133,6 +133,8 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'signup'
 
+CHANGE_PASSWORD_REDIRECT_URL = 'teacher_home'
+
 ACCOUNT_SIGNUP_FORM_CLASS = 'userauth.forms.SignupForm'
 
 STATICFILES_DIRS =[

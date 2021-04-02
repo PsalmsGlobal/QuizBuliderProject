@@ -33,3 +33,4 @@ admin.site.register(Student)
 admin.site.register(Teacher)
 
 
+

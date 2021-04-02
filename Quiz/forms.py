@@ -5,6 +5,7 @@ from django.db import transaction
 from .models import Question, Course
 from .models import User, Student
 
+
 class StudentSignUpForm(UserCreationForm):
     email       = forms.EmailField(label="", widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐸𝑚𝑎𝑖𝑙 𝐴𝑑𝑑𝑟𝑒𝑠𝑠'}))
     first_name  = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐹𝑖𝑟𝑠𝑡 𝑁𝑎𝑚𝑒'}))
@@ -90,6 +91,7 @@ class CreateQuestionForm(ModelForm):
     class Meta:
         model = Question
         fields = ['course', 'question', 'marks', 'answer', 'option1', 'option2', 'option3', 'option4']
+        
 
 class CourseForm(ModelForm):
     class Meta:
