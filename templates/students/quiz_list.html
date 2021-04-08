@@ -1,0 +1,44 @@
+{% extends 'students/base.html' %}
+
+
+  {% include 'students/_header.html' with active='new' %}
+  {% block content %}
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-info text-center">
+      <h5>{{ message }} </h5>
+    </div> 
+  {% endfor %}
+
+{% endif %}
+  <div class="col-lg-8">
+  <div class="card mt-2">
+    <table class="table mb-0">
+      <thead>
+        <tr class="bg-secondary">
+          <th>Quiz</th>
+          <th>Course</th>
+          <th>Length</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for quiz in quizzes %}
+          <tr>
+            <td class="align-middle">{{ quiz.name }}</td>
+            <td class="align-middle">{{ quiz.course.get_html_badge }}</td>
+            <td class="align-middle">{{ quiz.questions_count }} questions</td>
+            <td class="text-right">
+              <a href="{% url 'students:take_quiz' quiz.pk %}" class="btn btn-primary">Start quiz</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

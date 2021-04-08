@@ -28,10 +28,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'Quiz',
     'widget_tweaks',
     'rest_framework',
     'crispy_forms',
+   
 
     
 ]
@@ -133,7 +135,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'signup'
 
-CHANGE_PASSWORD_REDIRECT_URL = 'teacher_home'
+#CHANGE_PASSWORD_REDIRECT_URL = 'teacher_home'
 
 ACCOUNT_SIGNUP_FORM_CLASS = 'userauth.forms.SignupForm'
 

@@ -1,0 +1,44 @@
+{% extends 'teachers/base.html' %}
+
+{% block content%}
+<br><br> <br>
+<div class="row">
+  <div class="col-sm-4 ms-5">
+    <div class="card ">
+      <div class="card-body bg-success  ">
+          <a href="{% url 'teachers:quiz_add' %}"  class="text-light" style="text-decoration: none ;"><h4>➕𝑸𝒖𝒊𝒛</h4></a>
+          <br>
+          <h1 class="text-center text-light"><span>{{total_quiz}}</span></h1>
+          <h4 href=""  class="text-center text-light"><span></span></h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 ms-5">
+    <div class="card  ">
+      <div class="card-body bg-success ">
+          <h4 class="text-light">📚𝑻𝒐𝒕𝒂𝒍 𝑪𝒐𝒖𝒓𝒔𝒆</h4>
+          <br>
+          <h1 class="text-center text-light"><i class="fas fa-book f-left"></i><span>{{total_name}}</span></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 ms-5 mt-5">
+    <div class="card  ">
+      <div class="card-body bg-success ">
+          <a class="text-light" style="text-decoration: none ;"><h4>❓𝑻𝒐𝒕𝒂𝒍 𝑸𝒖𝒆𝒔𝒕𝒊𝒐𝒏𝒔</h4></a>
+          <br>
+          <h1 class="text-center text-light"><i class="fas fa-user-graduate f-left"></i><span>{{total_question}}</span></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 ms-5 mt-5">
+    <div class="card ">
+      <div class="card-body bg-success ">
+        <h4 class="text-light">🎓𝑺𝒕𝒖𝒅𝒆𝒏𝒕𝒔</h4>
+          <br>
+          <h1 class="text-center text-light"><i class="fas fa-user-graduate f-left"></i><span>{{total_student}}</span></h1>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}

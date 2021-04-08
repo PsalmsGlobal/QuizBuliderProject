@@ -1,0 +1,25 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<br><br><br><br><br>
+<div class="global-container">
+<div class="row">
+    <div class="col-sm-4 ms-5">
+      <div class="card ">
+        <div class="card-body bg-success  ">
+            <a class="text-light" style="text-decoration: none ;"><h4>Classmates</h4></a>
+            <h1  class="text-center text-light"><i class="fas fa-book f-left"></i><span>{{total_student}}</span></h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 ms-3">
+      <div class="card">
+        <div class="card-body bg-success ">
+            <h4 class="text-light">📚𝑪𝒐𝒖𝒓𝒔𝒆 To Take</h4>
+            <h1 class="text-center text-light"><i class="fas fa-book f-left"></i><span>{{total_name}}</span></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

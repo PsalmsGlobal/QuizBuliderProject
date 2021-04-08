@@ -14,7 +14,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 from ..models import Profile
-from ..forms import CreateQuestionForm
 from ..models import Question
 from django.urls import reverse_lazy
 from ..forms import* 
@@ -22,9 +21,7 @@ from ..models import*
 import json
 import uuid
 
-# class PasswordsChangeView(PasswordChangeView):
-#     form_class = PasswordChangeForm
-#     success_url = reverse_lazy('home')
+
 
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
@@ -52,68 +49,12 @@ def send_mail_after_registration(email , token):
     recipient_list = [email]
     send_mail(subject, message , email_from ,recipient_list )
 
-
-@login_required
-def api_question(request, id):
-    raw_questions = Question.objects.filter(course = id)[:20]
-    questions = []
-    
-    for raw_question in raw_questions:
-        question = {}
-        question['id'] = raw_question.id
-        question['question'] = raw_question.question
-        question['answer'] = raw_question.answer
-        question['marks'] = raw_question.marks
-        options = []
-        options.append(raw_question.option1)
-        options.append(raw_question.option2)
-        if raw_question.option3 !='':
-            options.append(raw_question.option3)
-        if raw_question.option4 !='':
-            options.append(raw_question.option4)
-
-        question['options'] = options
-        questions.append(question)
-
-    return JsonResponse(questions, safe=False)
-
-@login_required
-def view_score(request):
-    user = request.user
-    score = ScoreBoard.objects.filter(user=user)
-    context = {'score': score}
-    return render(request, 'quiz/score.html', context)
-
-@login_required
-def take_quiz (request, id):
-        context = {'id' : id}
-        return render(request, 'quiz/quizz.html', context)  
-
-@csrf_exempt
-@login_required
-def check_score(request):
-    data = json.loads(request.body)
-    user = request.user
-    course_id = data.get('course_id')
-    solutions = json.loads(data.get('data'))
-    course = Course.objects.get(id=course_id)
-    score = 0
-    for solution in solutions:
-        question = Question.objects.filter(id = solution.get('question_id')).first()
-        if (question.answer) == solution.get('option'):
-            score = score + question.marks
-
-    score_board = ScoreBoard(course = course, score = score, user = user)
-    score_board.save()
-    return JsonResponse({'message' : 'success', 'status':True})
-
-
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_teacher:
-            return redirect("teacher:teacher_home")
+            return redirect("teachers:teacher_home")
         else:
-            return redirect("student:student_home")
+            return redirect("students:student_home")
 
     return render(request, 'home.html')
     

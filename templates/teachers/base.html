@@ -12,10 +12,10 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
       <div class="container">
-        <a class="navbar-brand"><h2>𝓠𝓾𝓲𝔃 𝓐𝓹𝓹</h2></a>
-
+        <a class="navbar-brand"><h1>𝓠𝓾𝓲𝔃 𝓐𝓹𝓹</h1></a>
+            <br><br><br><br>
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,20 +44,20 @@
         </div>
       </div>
     </nav>
-      
-  
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-  body {
-    font-family: "Lato", sans-serif;
-  }
-  
-  .sidebar-container {
+    <br><br><br><br>
+
+    <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar-container {
   position: fixed;
-  width: 220px;
+  width: 200px;
   height: 100%;
   left: 0;
   overflow-x: hidden;
@@ -137,11 +137,11 @@
 }
 
 .content-container {
-  padding-left: 220px;
+  padding-left: 190px;
 }
-  </style>
-  </head>
-  <body>
+</style>
+</head>
+<body>
   
   <div class="sidenav text-center">
     
@@ -149,66 +149,61 @@
       <ul class="sidebar-navigation">
         <br><br><br><br>
         <li>
-            <a href="{% url 'teacher:teacher_home' %}" style="text-decoration: none ;">
-              <h1 class="fa fa-tachometer-alt" aria-hidden="true"></h1> <h5>Home</h5> 
-            </a>
-          </li>
+          <a href="{% url 'teachers:teacher_home' %}"  style="text-decoration: none ;">
+            <h1 class="" ></h1><h5>Home</h5> 
+          </a>
+        </li>
         <li>
-          <a href="{% url 'teacher:question' %}" style="text-decoration: none ;">
+          <a style="text-decoration: none ;">
             <h1 class="fa fa-tachometer-alt" aria-hidden="true"></h1> <h5>Questions</h5> 
           </a>
         </li>
         <li>
-          <a href="{% url 'teacher:course' %}" style="text-decoration: none ;">
-            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Course</h5> 
-          </a>
-        </li>
-        
+            <a href="{% url 'teachers:add_course' %}"  style="text-decoration: none ;">
+              <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Add Course</h5> 
+            </a>
+          </li>
         <li>
-          <a href="{% url 'teacher:view_student' %}" style="text-decoration: none ;">
+          <a href=""  style="text-decoration: none ;">
             <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Student</h5> 
           </a>
         </li>
+        <li>
+          <a href="{% url 'teachers:quiz_change_list' %}"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Quizzes</h5> 
+          </a>
+        </li>
+    
       </ul>
     </div>
   </div>
-    <div class="content-container">
+
+  <div class="content-container">
     
-      <div class="container-fluid">
-    
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="card">
-                    <div class="card-header bg-secondary">
-                        <h3 class="card-title text-light text-center">𝐐𝐔𝐄𝐒𝐓𝐈𝐎𝐍𝐒</h3>
-                    </div>
-      
-                    <ul class="list-group">
-                      {% for question in questions %}
-                      <li class="list-group-item">
-                          <i>{{ question.question }}</i>
-                          <span class="pull-right">
-                            <a href="" class="btn btn-danger rounded-pill btn-sm" style="float: right;">🗑️</a> &nbsp;
-                          </span>
-                      </li>
-                      {% endfor %}
-                  </ul> 
-      
+    <div class="container-fluid">
+  
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-2">
+                    {% block content %}
+                    
+                    {% endblock %}
+                    <br>
                 </div>
             </div>
-        </div>
-        </div>
-    
+          </div>
       </div>
-    </div>
-  
- 
-  {% block content %}
-  
-  {% endblock %}
+      </div>
+     
 
+
+
+   
+</body>
+</html> 
+    
   
 
   

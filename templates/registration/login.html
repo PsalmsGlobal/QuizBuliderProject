@@ -12,14 +12,7 @@
         <div class="card-body">
       <h2 class="text-center text-light">🅻🅾🅶 🅸🅽</h2>
       <br>
-      {% if messages %}
-          {% for message in messages %}
-          <div class="alert alert-info text-center">
-            <h5>{{ message }} </h5>
-        </div> 
-          {% endfor %}
-    
-      {% endif %}
+     
           <div class="card-text text-center">
       <form method="post" novalidate="">
         {% csrf_token %}

@@ -1,0 +1,24 @@
+{% extends 'teachers/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-8">
+<div class="card">
+  <div class="card-header bg-secondary">
+    <h2>𝐀𝐝𝐝 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧</h2>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><h5>𝐴𝑑𝑑 𝑎 𝑛𝑒𝑤 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛. 𝑂𝑛𝑐𝑒 𝑦𝑜𝑢 𝑐𝑟𝑒𝑎𝑡𝑒 𝑎 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛 𝑦𝑜𝑢 𝑐𝑎𝑛 𝑎𝑑𝑑 𝑐ℎ𝑜𝑖𝑐𝑒𝑠 𝑎𝑠 𝑚𝑢𝑐ℎ 𝑎𝑠 𝑦𝑜𝑢 𝑤𝑎𝑛𝑡.</h5></p>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success rounded-pill col-2 mx-auto mt-2">Save</button>
+      <a href="{% url 'teachers:quiz_change' quiz.pk %}" class="btn btn-secondary rounded-pill col-2 mx-auto mt-2" role="button">Back</a>
+    </form>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}

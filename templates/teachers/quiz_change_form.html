@@ -1,0 +1,72 @@
+{% extends 'teachers/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-2">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-info text-center">
+            <h5>{{ message }} </h5>
+        </div> 
+          {% endfor %}
+    
+      {% endif %}
+          <div class="card">
+            <div class="card-header bg-secondary ">
+             <h3>𝑸𝒖𝒊𝒛 𝒂𝒏𝒅 𝑸𝒖𝒆𝒔𝒕𝒊𝒐𝒏𝒔</h3>
+            </div>
+         
+  <div class="row mb-3">
+    <div class="col-md-6 col-sm-8 col-12">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mt-2 ms-2">
+        {{ form|crispy }}   
+        <button type="submit" class="btn btn-success">Save changes</button> 
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-10">
+          <strong>Questions</strong>
+        </div>
+        <div class="col-2">
+          <strong>Answers</strong>
+        </div>
+      </div>
+    </div>
+    <div class="list-group list-group-flush list-group-formset">
+      {% for question in questions %}
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-10">
+              <a href="{% url 'teachers:question_change' quiz.pk question.pk %}" style="text-decoration: none ;"><strong>{{ question.text }}</strong></a>
+            </div>
+            <div class="col-2">
+              {{ question.answers_count }}
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="list-group-item text-center">
+          <p class="text-muted font-italic mb-0">You haven't created any questions yet. Go ahead and add the first question</a>.</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="card-footer">
+      <a href="{% url 'teachers:question_add' quiz.pk %}" class="btn btn-primary rounded-pill">Add question</a>
+      <a href="{% url 'teachers:quiz_delete' quiz.pk %}" style="float: right;" class="btn btn-danger col-2 mx-auto ms-2 rounded-pill">🗑️</a>
+      <a href="{% url 'teachers:quiz_change_list' %}" class="btn btn-secondary col-2 mx-auto rounded-pill" style="float: right;" role="button">Back</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

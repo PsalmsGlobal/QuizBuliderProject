@@ -1,0 +1,32 @@
+{% extends 'students/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-lg-6">
+<div class="card bg-secondary mt-3">
+  <div class="card-header mt-2 ">
+    <h4>𝑼𝒑𝒅𝒂𝒕𝒆 𝑪𝒐𝒖𝒓𝒔𝒆 𝒀𝒐𝒖 𝑾𝒂𝒏𝒕 𝑻𝒐 𝑻𝒂𝒌𝒆</h4>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-3">
+  <div class="card-body">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div class="fs-3">
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success  ms-2 rounded-pill ">Save</button>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="row ">
+  <div class="col-lg-5">
+
+<a href="{% url 'students:quiz_list' %}" class="btn btn-secondary rounded-pill">No, Go Back</a>
+  </div>
+</div>
+</div>
+{% endblock %}

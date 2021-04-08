@@ -1,0 +1,16 @@
+{% extends 'teachers/base.html' %}
+
+{% block content%}
+<br><br>     
+ <div class="row">
+    <div class="col-sm-5 ms-5">
+      <div class="card rounded-pill">
+        <div class="card-body bg-info rounded-pill text-center">
+            <a href="{% url 'teachers:add_course' %}"  class="text-light" style="text-decoration: none ;">➕ Add Course</a>
+            <br><br> <br><br> <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'teachers/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-5">
+<div class="card">
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-info text-center">
+    <h5>{{ message }} </h5>
+    <button type="button" class="close" data-dismiss="alert" disabled aria-label="Alert">
+      <span aria-hidden="true">&times;</span></button>
+</div> 
+  {% endfor %}
+
+{% endif %}
+  <div class="card-header">
+    <h3>𝑨𝒅𝒅 𝒏𝒆𝒘 𝑸𝒖𝒊𝒛</h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">𝑵𝒐𝒕𝒆: 𝑁𝑎𝑚𝑒 𝐸𝑥𝑎𝑚𝑝𝑙𝑒𝑠, 𝑒.𝑔. 𝑄𝑢𝑖𝑧1, 𝑄𝑢𝑖𝑧2, 𝑒𝑡𝑐. </p>
+      <form method="post" novalidate>
+        {% csrf_token %}
+       
+         {{ form|crispy }}
+         <div class="  col-13 mx-auto">
+        <button type="submit" class="btn btn-success rounded-pill mt-3">Save</button>
+        <a href="{% url 'teachers:teacher_home' %}" class="btn btn-secondary rounded-pill mt-3" role="button">Back</a>
+         </div>
+      </form>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}
