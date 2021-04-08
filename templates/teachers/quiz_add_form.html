@@ -3,19 +3,19 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="col-lg-5">
+  <div class="alert alert-info {{ message.tags }} alert-dismissible fade show" role="alert">
+    {{ message }}
+  </div> 
+</div>
+{% endfor %}
+
+{% endif %}
 <div class="row">
   <div class="col-lg-5">
 <div class="card">
-  {% if messages %}
-  {% for message in messages %}
-  <div class="alert alert-info text-center">
-    <h5>{{ message }} </h5>
-    <button type="button" class="close" data-dismiss="alert" disabled aria-label="Alert">
-      <span aria-hidden="true">&times;</span></button>
-</div> 
-  {% endfor %}
-
-{% endif %}
   <div class="card-header">
     <h3>𝑨𝒅𝒅 𝒏𝒆𝒘 𝑸𝒖𝒊𝒛</h3>
   </div>

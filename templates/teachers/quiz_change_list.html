@@ -31,7 +31,7 @@
             <td class="align-middle">{{ quiz.taken_count }}</td>
             <td class="text-right">
               <a href="{% url 'teachers:q_delete' quiz.pk %}" style="float: right;" class="btn btn-danger rounded-pill ms-2">🗑️</a>
-              <a href="{% url 'teachers:quiz_results' quiz.pk %}" style="float: right;" class="btn btn-secondary rounded-pill">👁View results</a>
+              <a href="{% url 'teachers:quiz_results' quiz.pk %}" style="float: right;"  class="btn btn-secondary rounded-pill">👁View results</a>
             </td>
           </tr>
         {% empty %}

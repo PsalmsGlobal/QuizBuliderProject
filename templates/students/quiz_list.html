@@ -1,18 +1,19 @@
 {% extends 'students/base.html' %}
 
 
-  {% include 'students/_header.html' with active='new' %}
   {% block content %}
   {% if messages %}
   {% for message in messages %}
+  <div class="col-lg-8 mt-2">
     <div class="alert alert-info text-center">
       <h5>{{ message }} </h5>
     </div> 
+  </div>
   {% endfor %}
 
 {% endif %}
   <div class="col-lg-8">
-  <div class="card mt-2">
+  <div class="card">
     <table class="table mb-0">
       <thead>
         <tr class="bg-secondary">
@@ -34,7 +35,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+            <td class="bg-light text-center font-italic" colspan="4"><h5>𝑁𝑜 𝑎𝑣𝑎𝑖𝑙𝑎𝑏𝑙𝑒 𝑞𝑢𝑖𝑧 𝑟𝑖𝑔ℎ𝑡 𝑛𝑜𝑤.</h5></td>
           </tr>
         {% endfor %}
       </tbody>

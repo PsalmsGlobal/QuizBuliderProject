@@ -32,10 +32,10 @@ path('changepassword_success/', quiz.changepassword_success, name='changepasswor
     ],  'quiz'), namespace='teachers')),  
     
     path('students/', include(([
-        path('', students.QuizListView.as_view(), name='quiz_list'),
+        path('quiz/list/', students.QuizListView.as_view(), name='quiz_list'),
         path('interests/', students.StudentInterestsView.as_view(), name='student_interests'),
         path('taken/', students.TakenQuizListView.as_view(), name='taken_quiz_list'),
         path('quiz/<int:pk>/', students.take_quiz, name='take_quiz'),
-        path('student_home', students.student_home, name='student_home'),
+        path('', students.student_home, name='student_home'),
     ],  'quiz'), namespace='students')),    
 ]

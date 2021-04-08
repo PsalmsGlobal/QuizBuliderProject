@@ -17,15 +17,11 @@
       {% csrf_token %}
       <div class="fs-3">
       {{ form|crispy }}
-      <button type="submit" class="btn btn-success  ms-2 rounded-pill ">Save</button>
+      <div class="d-grid gap-2 col-10 mx-auto mt-3 ms-1">
+      <button type="submit" class="btn btn-success ms-2 rounded-pill ">Save</button>
     </div>
-    </form>
   </div>
-</div>
-<div class="row ">
-  <div class="col-lg-5">
-
-<a href="{% url 'students:quiz_list' %}" class="btn btn-secondary rounded-pill">No, Go Back</a>
+    </form>
   </div>
 </div>
 </div>

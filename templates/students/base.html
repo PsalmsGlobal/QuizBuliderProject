@@ -34,7 +34,7 @@
                   </a>
                   <ul class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
                    
-                    <li><a class="dropdown-item text-light" href="{%url 'change_password'%}"><img src="{% static 'images/' %}">Change password</a></li>
+                    <li><a class="dropdown-item text-light" href="{%url 'change_password'%}">🔑 Change password</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'about' %}"> <img src="{% static 'images/about.png' %}">About</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.png' %}">Log Out</a></li>
                  
@@ -167,6 +167,17 @@ body {
             <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Taken Quiz</h5> 
           </a>
         </li>
+        <li>
+          <a data-bs-toggle="modal" data-bs-target="#closeModal"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Instructions
+            </h5> 
+          </a>
+        </li>
+        <li>
+          <a data-bs-toggle="modal" data-bs-target="#PlayModal"  style="text-decoration: none ;">
+            <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>How To Play❓</h5> 
+          </a>
+        </li>
     
       </ul>
     </div>
@@ -190,6 +201,56 @@ body {
           </div>
       </div>
       </div>
+
+      <div class="modal" id="closeModal">
+        <br><br>
+       <div class="modal-dialog ">
+         <div class="modal-content">
+           <div class="modal-header  text-secondary">
+             <p class="modal-title"><h3>INSTRUCTIONS</h3></p>
+           </div>
+           <div class="modal-body text-info">
+             <h5>𝑻𝒉𝒆 𝑻𝒆𝒔𝒕:</h5><i>The Quiz has no time limit.</i>
+             <p><i>This test is not official. It's just a way to see what you have learned on the previous discussion.</i></p>
+             <h5>𝑻𝒉𝒆 𝑺𝒄𝒐𝒓𝒆:</h5><i>You must pass the test.</i>
+             <p><i>Passing Score is 75%. If you fail, better luck next time.</i></p>
+             <p><i>Perfect score or points is 100%.</i></p>
+             <h5>𝑰𝒏𝒔𝒕𝒓𝒖𝒄𝒕𝒊𝒐𝒏:</h5>
+             <p><i>After you take the test, you can see your score on "TAKEN QUIZ".</i></p>
+             <p><i>Your choice can be change.</i></p>
+             <p><i>Your can't see if your answer is correct or wrong.</i></p>
+             <h5>Reminder:</h5>
+             <p><i>Choose Carefully.</i></p>
+            
+           </div>
+           <div class="modal-footer">
+               <a href="{% url 'students:student_home' %}" class="btn btn-secondary" type="submit" >𝑂𝑘𝑎𝑦</a>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="modal" id="PlayModal">
+      <br><br>
+     <div class="modal-dialog ">
+       <div class="modal-content">
+         <div class="modal-header  text-secondary">
+           <p class="modal-title"><h3>HOW TO PLAY❓</h3></p>
+         </div>
+         <div class="modal-body text-info">
+           <i>Before you take a quiz cilck first <strong>"SELECT COURSE"</strong> to select a course you want to take to.</i>
+           <br><br>
+           <i>After selecting a course click <strong>"TAKE QUIZ"</strong> to start quiz.</i>
+           <br><br>
+           <i>If you want to see your result click <strong>"TAKEN QUIZ"</strong> it will show you your score and course you took.</i>
+         </div>
+         <div class="modal-footer">
+             <a href="{% url 'students:student_home' %}" class="btn btn-secondary" type="submit" >𝑂𝑘𝑎𝑦</a>
+         </div>
+       </div>
+     </div>
+   </div>
+
      
 
 

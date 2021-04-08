@@ -74,7 +74,7 @@ class QuizCreateView(CreateView):
         quiz = form.save(commit=False)
         quiz.owner = self.request.user
         quiz.save()
-        messages.success(self.request, '𝑇ℎ𝑒 𝑞𝑢𝑖𝑧 𝑤𝑎𝑠 𝑐𝑟𝑒𝑎𝑡𝑒𝑑 𝑤𝑖𝑡ℎ 𝑠𝑢𝑐𝑐𝑒𝑠𝑠❗ 𝐺𝑜 𝑎ℎ𝑒𝑎𝑑 𝑎𝑛𝑑 𝑎𝑑𝑑 𝑠𝑜𝑚𝑒 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛𝑠 𝑛𝑜𝑤.')
+        messages.success(self.request, '𝑇ℎ𝑒 𝑞𝑢𝑖𝑧 𝑤𝑎𝑠 𝑐𝑟𝑒𝑎𝑡𝑒𝑑 𝑠𝑢𝑐𝑐𝑒𝑠𝑠𝑓𝑢𝑙𝑙𝑦❗ 𝐺𝑜 𝑎ℎ𝑒𝑎𝑑 𝑎𝑛𝑑 𝑎𝑑𝑑 𝑠𝑜𝑚𝑒 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛𝑠 𝑛𝑜𝑤.')
         return redirect('teachers:quiz_add')
 
 
@@ -210,7 +210,7 @@ def question_change(request, quiz_pk, question_pk):
             with transaction.atomic():
                 form.save()
                 formset.save()
-            messages.success(request, '𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛 𝑎𝑛𝑑 𝑐ℎ𝑜𝑖𝑐𝑒𝑠 𝑠𝑎𝑣𝑒𝑑 𝑤𝑖𝑡ℎ 𝑠𝑢𝑐𝑐𝑒𝑠𝑠❗')
+            messages.success(request, '𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛 𝑎𝑛𝑑 𝑐ℎ𝑜𝑖𝑐𝑒𝑠 𝑠𝑎𝑣𝑒𝑑 𝑠𝑢𝑐𝑐𝑒𝑠𝑠𝑓𝑢𝑙𝑙𝑦❗')
             return redirect('teachers:quiz_change', quiz.pk)
     else:
         form = QuestionForm(instance=question)

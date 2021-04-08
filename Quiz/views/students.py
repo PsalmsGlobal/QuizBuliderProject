@@ -55,7 +55,7 @@ class StudentInterestsView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Interests updated with success!')
+        messages.success(self.request, 'Courses updated with success!')
         return super().form_valid(form)
 
 
@@ -118,7 +118,7 @@ def take_quiz(request, pk):
                     correct_answers = student.quiz_answers.filter(answer__question__quiz=quiz, answer__is_correct=True).count()
                     score = round((correct_answers / total_questions) * 100.0, 2)
                     TakenQuiz.objects.create(student=student, quiz=quiz, score=score)
-                    if score < 50.0:
+                    if score < 74.0:
                         messages.warning(request, 'Better luck next time! Your score for the quiz %s was %s.' % (quiz.name, score))
                     else:
                         messages.success(request, 'Congratulations! You completed the quiz %s with success! You scored %s points.' % (quiz.name, score))
