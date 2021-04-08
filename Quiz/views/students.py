@@ -68,9 +68,9 @@ class QuizListView(ListView):
 
     def get_queryset(self):
         student = self.request.user.student
-        student_interests = student.interests.values_list('pk', flat=True)
+        student_courses = student.courses.values_list('pk', flat=True)
         taken_quizzes = student.quizzes.values_list('pk', flat=True)
-        queryset = Quiz.objects.filter(course__in=student_interests) \
+        queryset = Quiz.objects.filter(course__in=student_courses) \
             .exclude(pk__in=taken_quizzes) \
             .annotate(questions_count=Count('questions')) \
             .filter(questions_count__gt=0)

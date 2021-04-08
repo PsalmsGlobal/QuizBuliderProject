@@ -62,7 +62,7 @@ class Answer(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     quizzes = models.ManyToManyField(Quiz, through='TakenQuiz')
-    interests = models.ManyToManyField(Course, related_name='interested_students')
+    courses = models.ManyToManyField(Course, related_name='interested_students')
 
     def get_unanswered_questions(self, quiz):
         answered_questions = self.quiz_answers \

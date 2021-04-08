@@ -92,9 +92,9 @@ class TeacherSignUpForm(UserCreationForm):
 class StudentInterestsForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ('interests', )
+        fields = ('courses', )
         widgets = {
-            'interests': forms.CheckboxSelectMultiple
+            'courses': forms.CheckboxSelectMultiple
         }
 
 
