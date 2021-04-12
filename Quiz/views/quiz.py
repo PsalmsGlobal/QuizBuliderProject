@@ -10,11 +10,11 @@ from django.views.generic import View
 from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.http import HttpResponse
-from django.core.mail import send_mail
 from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib import messages
-from ..models import Profile
-from ..models import Question
+
+from ..models import Question, Profile
 from django.urls import reverse_lazy
 from ..forms import* 
 from ..models import* 
@@ -26,13 +26,14 @@ import uuid
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
 
+
 def verify(request , auth_token):
         profile_obj = Profile.objects.filter(auth_token = auth_token).first()
 
         if profile_obj:
             if profile_obj.is_verified:
                 messages.success(request, 'Your account is already verified.')
-                return redirect('success')
+                return redirect('/login')
             profile_obj.is_verified = True
             profile_obj.save()
             messages.success(request, 'Your account has been verified.')

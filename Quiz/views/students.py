@@ -9,8 +9,9 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
 
 from ..forms import StudentInterestsForm, StudentSignUpForm, TakeQuizForm
-from ..models import Quiz, Student, TakenQuiz, User, Course, Question
+from ..models import Quiz, Student, TakenQuiz, User, Course, Question, Profile
 from ..decorators import student_required
+from .quiz import *
 import uuid
 
 class StudentSignUpView(CreateView):
@@ -36,7 +37,7 @@ class StudentSignUpView(CreateView):
                 profile_obj = Profile.objects.create(user = user , auth_token = auth_token)
                 profile_obj.save()
                 send_mail_after_registration(email , auth_token)
-                return redirect('/token/')
+                return redirect('/token')
 
             except Exception as e:
                 print(e)
@@ -121,7 +122,7 @@ def take_quiz(request, pk):
                     if score < 74.0:
                         messages.warning(request, 'Better luck next time! Your score for the quiz %s was %s.' % (quiz.name, score))
                     else:
-                        messages.success(request, 'Congratulations! You completed the quiz %s with success! You scored %s points.' % (quiz.name, score))
+                        messages.success(request, 'Congratulations! perfect quiz %s! You scored %s points.' % (quiz.name, score))
                     return redirect('students:quiz_list')
     else:
         form = TakeQuizForm(question=question)

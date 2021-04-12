@@ -15,6 +15,7 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
 from ..forms import BaseAnswerInlineFormSet, QuestionForm, TeacherSignUpForm , CourseForm
 from ..decorators import teacher_required
 from ..models import Answer, Question, Quiz, User, Course, Student
+from .quiz import *
 import uuid
 
 class TeacherSignUpView(CreateView):
@@ -33,15 +34,15 @@ class TeacherSignUpView(CreateView):
             try:
                 if User.objects.filter(email = email).first():
                     messages.success(request, 'Email is taken.')
-                    return redirect('signup')
-
+                    return redirect('teacher_signup')
 
                 user = form.save()
                 auth_token = str(uuid.uuid4())
                 profile_obj = Profile.objects.create(user = user , auth_token = auth_token)
                 profile_obj.save()
                 send_mail_after_registration(email , auth_token)
-                return redirect('/token/')
+                return redirect('/token')
+               
 
             except Exception as e:
                 print(e)
@@ -75,7 +76,7 @@ class QuizCreateView(CreateView):
         quiz.owner = self.request.user
         quiz.save()
         messages.success(self.request, '𝑇ℎ𝑒 𝑞𝑢𝑖𝑧 𝑤𝑎𝑠 𝑐𝑟𝑒𝑎𝑡𝑒𝑑 𝑠𝑢𝑐𝑐𝑒𝑠𝑠𝑓𝑢𝑙𝑙𝑦❗ 𝐺𝑜 𝑎ℎ𝑒𝑎𝑑 𝑎𝑛𝑑 𝑎𝑑𝑑 𝑠𝑜𝑚𝑒 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛𝑠 𝑛𝑜𝑤.')
-        return redirect('teachers:quiz_add')
+        return redirect('teachers:add_more_quiz')
 
 
 @method_decorator([login_required, teacher_required], name='dispatch')
@@ -115,6 +116,7 @@ class QuizDeleteView(DeleteView):
 
     def get_queryset(self):
         return self.request.user.quizzes.all()
+
 
 @method_decorator([login_required, teacher_required], name='dispatch')
 class QDeleteView(DeleteView):
@@ -248,6 +250,7 @@ class QuestionDeleteView(DeleteView):
         question = self.get_object()
         return reverse('teachers:quiz_change', kwargs={'pk': question.quiz_id})
 
+
 def teacher_home(request):
     dict={
     
@@ -261,6 +264,14 @@ def teacher_home(request):
 def course(request):
     return render(request, 'teachers/course.html')
 
+def view_course(request):
+    name = Course.objects.all()
+
+    context = {
+        "name" : name,
+    }
+    return render(request, 'teachers/view_course.html', context)
+
 
 def add_course(request):
     
@@ -269,7 +280,7 @@ def add_course(request):
         if form.is_valid():
             print(form.cleaned_data['name'])        
             form.save()
-
+            messages.success(request, 'Course Added successfully!')
             return redirect("teachers:course")
 
     else:
@@ -277,4 +288,6 @@ def add_course(request):
     context = {'form' : form}
     return render(request,'teachers/add_course.html',context)
 
+def add_more_quiz(request):
+    return render(request, 'teachers/add_more_quiz.html')
 

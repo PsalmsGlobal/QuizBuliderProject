@@ -1,20 +1,21 @@
-from django.contrib import admin
+
 from django.urls import path, include
 from .views import quiz, students, teachers
+from .views.quiz import *
 
 
 
 urlpatterns = [
-path('token/' , quiz.token_send , name="token_send"),
-path('about/',  quiz.AboutView.as_view(), name="about"),
-path('success/' , quiz.success , name='success'),
-path('logout/', quiz.LogoutView.as_view(), name="logout"),
-path('verify/<auth_token>' , quiz.verify , name="verify"),
-path('error/' , quiz.error_page , name="error"),
-path('change_password/',quiz.change_password, name= 'change_password'),
-path('changepassword_success/', quiz.changepassword_success, name='changepassword_success'),
+path('token/' , token_send , name="token_send"),
+path('about/',  AboutView.as_view(), name="about"),
+path('success/' , success , name='success'),
+path('logout/', LogoutView.as_view(), name="logout"),
+path('verify/<auth_token>' , verify , name="verify"),
+path('error/' , error_page , name="error"),
+path('change_password/', change_password, name= 'change_password'),
+path('changepassword_success/', changepassword_success, name='changepassword_success'),
 
-    path('', quiz.home, name='home'),
+    path('', home, name='home'),
 
     path('teachers/', include(([
         path('', teachers.teacher_home, name='teacher_home'),
@@ -23,12 +24,15 @@ path('changepassword_success/', quiz.changepassword_success, name='changepasswor
         path('quiz/<int:pk>/', teachers.QuizUpdateView.as_view(), name='quiz_change'),
         path('q/<int:pk>/delete/', teachers.QDeleteView.as_view(), name='q_delete'),
         path('quiz/<int:pk>/delete/', teachers.QuizDeleteView.as_view(), name='quiz_delete'),
+        #path('course/<int:pk>/delete/', teachers.CourseDeleteView.as_view(), name='course_delete'),
         path('quiz/<int:pk>/results/', teachers.QuizResultsView.as_view(), name='quiz_results'),
         path('quiz/<int:pk>/question/add/', teachers.question_add, name='question_add'),
         path('quiz/<int:quiz_pk>/question/<int:question_pk>/', teachers.question_change, name='question_change'),
         path('quiz/<int:quiz_pk>/question/<int:question_pk>/delete/', teachers.QuestionDeleteView.as_view(), name='question_delete'),
         path('add/course/', teachers.add_course, name='add_course'),
         path('course/', teachers.course, name='course'),
+        path('view_course/', teachers.view_course, name='view_course'),
+        path('add_more_quiz/', teachers.add_more_quiz, name='add_more_quiz'),
     ],  'quiz'), namespace='teachers')),  
     
     path('students/', include(([

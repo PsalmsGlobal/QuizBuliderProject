@@ -1,16 +1,18 @@
 {% extends 'students/base.html' %}
 
-{% load crispy_forms_tags %}
+{% load bootstrap %}
 
 {% block content %}
       <div class="progress mb-3">
-        <div class="progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%"></div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{ progress }}"  aria-valuemin="0" aria-valuemax="100" style="width:{{ progress }}%"></div>
       </div>
+      <div class="ms-3">
       <h2 class="mb-3">{{ quiz.name }}</h2>
       <p class="lead">{{ question.text }}</p>
       <form method="post" novalidate>
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Next</button>
+        {% csrf_token %}      
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary mt-3">Next ➠</button>
       </form>
+    </div>  `
 {% endblock %}

@@ -9,9 +9,9 @@ from .models import (Answer, Question, Student, StudentAnswer,
 
 
 class StudentSignUpForm(UserCreationForm):
-    email       = forms.EmailField(label="", widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐸𝑚𝑎𝑖𝑙 𝐴𝑑𝑑𝑟𝑒𝑠𝑠'}))
-    first_name  = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐹𝑖𝑟𝑠𝑡 𝑁𝑎𝑚𝑒'}))
-    last_name   = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐿𝑎𝑠𝑡 𝑁𝑎𝑚𝑒'}))
+    email       = forms.EmailField(label="", widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill mt-3 ', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐸𝑚𝑎𝑖𝑙 𝐴𝑑𝑑𝑟𝑒𝑠𝑠'}))
+    first_name  = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill mt-3 ', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐹𝑖𝑟𝑠𝑡 𝑁𝑎𝑚𝑒'}))
+    last_name   = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill mt-3 ', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐿𝑎𝑠𝑡 𝑁𝑎𝑚𝑒'}))
   
     class Meta(UserCreationForm.Meta):
         model = User
@@ -27,13 +27,13 @@ class StudentSignUpForm(UserCreationForm):
         self.fields['username'].label = ''
         self.fields['username'].help_text = '<span class ="form-text text-muted"><small></small></span>'
 
-        self.fields['password1'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill  mt-2'
+        self.fields['password1'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill mt-3'
         self.fields['password1'].widget.attrs['style']       = 'text-align: center;font-size:15px;'
         self.fields['password1'].widget.attrs['placeholder'] = '𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑'
         self.fields['password1'].label = ''
         self.fields['password1'].help_text = '<span class ="form-text text-muted"><small></small></span>'
 
-        self.fields['password2'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill  mt-2'
+        self.fields['password2'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill '
         self.fields['password2'].widget.attrs['style']       = 'text-align: center;font-size:15px;'
         self.fields['password2'].widget.attrs['placeholder'] = '𝐶𝑜𝑛𝑓𝑖𝑟𝑚 𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑'
         self.fields['password2'].label = ''
@@ -50,9 +50,9 @@ class StudentSignUpForm(UserCreationForm):
 
 
 class TeacherSignUpForm(UserCreationForm):
-    email       = forms.EmailField(label="", widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐸𝑚𝑎𝑖𝑙 𝐴𝑑𝑑𝑟𝑒𝑠𝑠'}))
-    first_name  = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐹𝑖𝑟𝑠𝑡 𝑁𝑎𝑚𝑒'}))
-    last_name   = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill  mt-2', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐿𝑎𝑠𝑡 𝑁𝑎𝑚𝑒'}))
+    email       = forms.EmailField(label="", widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill mt-3 ', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐸𝑚𝑎𝑖𝑙 𝐴𝑑𝑑𝑟𝑒𝑠𝑠'}))
+    first_name  = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill mt-3  ', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐹𝑖𝑟𝑠𝑡 𝑁𝑎𝑚𝑒'}))
+    last_name   = forms.CharField(label="", max_length=100, widget=forms. TextInput(attrs={'class':'form-control form-control-sm rounded-pill mt-3 ', 'style':'text-align: center;font-size:15px;', 'placeholder': '𝐿𝑎𝑠𝑡 𝑁𝑎𝑚𝑒'}))
     
 
     class Meta(UserCreationForm.Meta):
@@ -68,13 +68,13 @@ class TeacherSignUpForm(UserCreationForm):
         self.fields['username'].label = ''
         self.fields['username'].help_text = '<span class ="form-text text-muted"><small></small></span>'
 
-        self.fields['password1'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill  mt-2'
+        self.fields['password1'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill mt-3'
         self.fields['password1'].widget.attrs['style']       = 'text-align: center;font-size:15px;'
         self.fields['password1'].widget.attrs['placeholder'] = '𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑'
         self.fields['password1'].label = ''
         self.fields['password1'].help_text = '<span class ="form-text text-muted"><small></small></span>'
 
-        self.fields['password2'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill  mt-2'
+        self.fields['password2'].widget.attrs['class']       = 'form-control form-control-sm rounded-pill'
         self.fields['password2'].widget.attrs['style']       = 'text-align: center;font-size:15px;'
         self.fields['password2'].widget.attrs['placeholder'] = '𝐶𝑜𝑛𝑓𝑖𝑟𝑚 𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑'
         self.fields['password2'].label = ''

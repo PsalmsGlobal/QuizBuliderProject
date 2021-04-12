@@ -13,10 +13,12 @@
   {% endfor %}
 
 {% endif %}
-  <h2 class="mb-3 text-info">"{{ quiz.name }}" Results</h2>
 
   <div class="card">
-    <div class="card-header bg-secondary">
+    <div class="card-header text-center bg-secondary">
+      <strong>{{ quiz.name }} Results</strong>
+    </div>
+    <div class="card-header bg-info">
       <strong>Taken Quizzes</strong>
       <span style="float: right;" class="badge badge-pill badge-primary text-dark">Average Score: {{ quiz_score.average_score|default_if_none:0.0 }}</span>
     </div>
@@ -31,7 +33,7 @@
       <tbody>
         {% for taken_quiz in taken_quizzes %}
           <tr>
-            <td>{{ user.first_name }} {{user.last_name}}</td>
+            <td>{{ taken_quiz.student.user.first_name}} {{ taken_quiz.student.user.last_name}}</td>
             <td>{{ taken_quiz.date|naturaltime }}</td>
             <td>{{ taken_quiz.score }}</td>
           </tr>
@@ -40,9 +42,7 @@
     </table>
     <div class="card-footer text-muted">
       Total respondents: <strong>{{ total_taken_quizzes }}</strong>
+      <a href="{% url 'teachers:quiz_change_list' %}" class="me-5" style="float: right; text-decoration: none;"><strong>Back</strong></a>
     </div>
-  </div>
-  <div  class="text-center mt-2 d-grid gap-2 col-3 mx-auto mt-3">
-    <a href="{% url 'teachers:quiz_change_list' %}" class="btn btn-primary rounded-pill">Back</a>
   </div>
 {% endblock %}

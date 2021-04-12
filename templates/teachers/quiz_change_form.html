@@ -1,14 +1,15 @@
 {% extends 'teachers/base.html' %}
 
 {% load crispy_forms_tags %}
+{% load bootstrap %}
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-12 col-lg-offset-2">
+        <div class="col-sm-12 col-sm-offset-2">
           {% if messages %}
           {% for message in messages %}
           <div class="alert alert-info text-center">
-            <h5>{{ message }} </h5>
+            {{ message }}
         </div> 
           {% endfor %}
     
@@ -23,7 +24,7 @@
       <form method="post" novalidate>
         {% csrf_token %}
         <div class="mt-2 ms-2">
-        {{ form|crispy }}   
+        {{ form|bootstrap }}   
         <button type="submit" class="btn btn-success mt-2">Save changes</button> 
       </div>
       </form>
@@ -61,9 +62,9 @@
         </div>
       {% endfor %}
     </div>
-    <div class="card-footer">
+    <div class="card-footer text-center">
       <a href="{% url 'teachers:question_add' quiz.pk %}" class="btn btn-primary rounded-pill">Add question</a>
-      <a href="{% url 'teachers:quiz_change_list' %}" class="btn btn-secondary col-2 mx-auto rounded-pill" style="float: right;" role="button">Back</a>
+      <a href="{% url 'teachers:quiz_change_list' %}" class="btn btn-secondary col-2 mx-auto rounded-pill" role="button">Back</a>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@ from django.utils.html import escape, mark_safe
 from django.utils import timezone
 import datetime
 
-
+    
 class User(AbstractUser):
     is_student = models.BooleanField(default=False)
     is_teacher = models.BooleanField(default=False)

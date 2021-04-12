@@ -34,7 +34,7 @@
                   </a>
                   <ul class="dropdown-menu bg-secondary " aria-labelledby="navbarDropdown">
                    
-                    <li><a class="dropdown-item text-light" href="{%url 'change_password'%}">🔑 Change password</a></li>
+                    <li><a class="dropdown-item text-light"  href="{%url 'change_password'%}">🔑 Change password</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'about' %}"> <img src="{% static 'images/about.png' %}">About</a></li>
                     <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><img src="{% static 'images/log.png' %}">Log Out</a></li>
                  
@@ -159,8 +159,8 @@ body {
           </a>
         </li>
         <li>
-            <a href="{% url 'teachers:add_course' %}"  style="text-decoration: none ;">
-              <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Add Course</h5> 
+            <a href="{% url 'teachers:course' %}"  style="text-decoration: none ;">
+              <h1 class="fa fa-tachometer" aria-hidden="true"></h1> <h5>Course</h5> 
             </a>
           </li>
         <li>

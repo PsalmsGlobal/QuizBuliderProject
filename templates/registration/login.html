@@ -1,22 +1,33 @@
 
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load bootstrap %}
 
 
 {% block content %}
 <div class="global-container bg-dark">
-  <br><br><br>
+  <br><br><br><br><br>
   <div class="row justify-content-center">
     <div class="col-4">
       <div class="card bg-secondary">
         <div class="card-body">
       <h2 class="text-center text-light">🅻🅾🅶 🅸🅽</h2>
-      <br>
-     
+      {% if messages %}
+      {% for message in messages %}
+      <div class="col-sm-12 mt-2">
+        <div class="alert alert-warning text-center">
+          {{ message }}
+        </div> 
+      </div>
+      {% endfor %}
+    
+    {% endif %}
           <div class="card-text text-center">
       <form method="post" novalidate="">
         {% csrf_token %}
-        {{ form| crispy}}
+        <div class="text-center" style="text-align: center;">
+        {{ form| bootstrap}}
+      </div>
       <div class="text-center mt-2">
         <a class="text-info" style="text-decoration: none ;" href="https://accounts.google.com/signin/v2/challenge/ipe?continue=https%3A%2F%2Fmyaccount.google.com%2Fsigninoptions%2Fpassword%3Fcontinue%3Dhttps%3A%2F%2Fmyaccount.google.com%2Fsecurity&service=accountsettings&osid=1&rart=ANgoxcf7l6Zzm1S9_nbYasXn9U_Fym_cxTs9A0G2uc-ZpRKAsXDi5TOXcXbMGXtuRVmlvIbSrUxCIg9vHFY5-5dPPDpoO7qlSw&TL=AM3QAYYiZ4iYO_Y6nneZSevwx5w_RWa04_tR22V_lChSXdCk5diQwy1SNi33ZS2C&flowName=GlifWebSignIn&cid=5&flowEntry=ServiceLogin&navigationDirection=forward" style="float:center;font-size:15px;" >𝐹𝑜𝑟𝑔𝑜𝑡 𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑?</a>
         </div>
@@ -36,7 +47,7 @@
   </div>
   </div>
   </div>
-  <br><br>
+  <br><br><br>
   <p class="text-center text-secondary">code@GPG 2021</p>
   <br>
 </div>

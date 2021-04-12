@@ -24,14 +24,14 @@
       </thead>
       <tbody>
         {% for quiz in quizzes %}
-          <tr class="bg-info text-center">
+          <tr class="text-center">
             <td class="align-middle"><a href="{% url 'teachers:quiz_change' quiz.pk %}" style="text-decoration: none ;"><strong>{{ quiz.name }}</strong></a></td>
             <td class="align-middle">{{ quiz.course }}</td>
             <td class="align-middle">{{ quiz.questions_count }}</td>
             <td class="align-middle">{{ quiz.taken_count }}</td>
             <td class="text-right">
-              <a href="{% url 'teachers:q_delete' quiz.pk %}" style="float: right;" class="btn btn-danger rounded-pill ms-2">🗑️</a>
-              <a href="{% url 'teachers:quiz_results' quiz.pk %}" style="float: right;"  class="btn btn-secondary rounded-pill">👁View results</a>
+              <a href="{% url 'teachers:q_delete' quiz.pk %}" style="float: right; text-decoration: none ;" class="mt-2 ms-4 me-3">🗑️</a>
+              <a href="{% url 'teachers:quiz_results' quiz.pk %}" class="mt-2 text-success" style="float: right; text-decoration: none ;"><strong>👁View results</strong></a>
             </td>
           </tr>
         {% empty %}
