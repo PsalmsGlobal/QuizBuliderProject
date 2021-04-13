@@ -56,7 +56,7 @@ class StudentInterestsView(UpdateView):
         return self.request.user.student
 
     def form_valid(self, form):
-        messages.success(self.request, 'Courses updated with success!')
+        messages.success(self.request, 'Courses updated successfully!')
         return super().form_valid(form)
 
 
@@ -146,13 +146,3 @@ def student_home(request):
     }
     return render(request,'students/student_home.html',context=dict)
 
-# def instruction(request):
-#     return render(request, 'student/instruction.html')
-
-# def features(request):
-#     return render(request, 'student/features.html')
-
-# def take_quiz(request):
-#     courses = Course.objects.all()
-#     context = {'courses': courses}
-#     return render(request, 'student/take_quiz.html', context)

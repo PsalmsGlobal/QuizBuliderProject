@@ -4,11 +4,11 @@
 {% load bootstrap %}
 
 {% block content %}
-  <h2 class="mb-3">{{ question.txt }}</h2>
+  <h2 class="mb-3 text-light">{{ question.txt }}</h2>
   <form method="post" novalidate>
     {% csrf_token %}
     {{ formset.management_form }}
-    {{ form.text|bootstrap_horizontal:'col-sm-2'}}
+    {{ form.text|bootstrap}}
     <div class="card mt-2 mb-3{% if formset.errors %} border-danger{% endif %}">
       <div class="card-header">
         <div class="row">
@@ -47,13 +47,14 @@
           </div>
         {% endfor %}
       </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <p> <small class="form-text text-muted">𝑌𝑜𝑢𝑟 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛 𝑚𝑎𝑦 ℎ𝑎𝑣𝑒 𝑎𝑡 𝑙𝑒𝑎𝑠𝑡 <strong>2</strong> 𝑐ℎ𝑜𝑖𝑐𝑒𝑠 𝑎𝑛𝑑 𝑚𝑎𝑥𝑖𝑚𝑢𝑚 <strong>20</strong> 𝑐ℎ𝑜𝑖𝑐𝑒𝑠. 𝑆𝑒𝑙𝑒𝑐𝑡 𝑎𝑡 𝑙𝑒𝑎𝑠𝑡 𝑜𝑛𝑒 𝑐𝑜𝑟𝑟𝑒𝑐𝑡 𝑐ℎ𝑜𝑖𝑐𝑒.</small></p>
-        <button type="submit" class="btn btn-success rounded-pill">Save changes</button>
-    <a href="{% url 'teachers:quiz_change' quiz.pk %}" class="btn btn-secondary col-2 mx-auto rounded-pill" role="button">Back</a>
+      <div class="card">
+        <div class="card-body">
+          <p> <small class="form-text text-muted">𝑌𝑜𝑢𝑟 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛 𝑚𝑎𝑦 ℎ𝑎𝑣𝑒 𝑎𝑡 𝑙𝑒𝑎𝑠𝑡 <strong>2</strong> 𝑐ℎ𝑜𝑖𝑐𝑒𝑠 𝑎𝑛𝑑 𝑚𝑎𝑥𝑖𝑚𝑢𝑚 <strong>20</strong> 𝑐ℎ𝑜𝑖𝑐𝑒𝑠. 𝑆𝑒𝑙𝑒𝑐𝑡 𝑎𝑡 𝑙𝑒𝑎𝑠𝑡 𝑜𝑛𝑒 𝑐𝑜𝑟𝑟𝑒𝑐𝑡 𝑐ℎ𝑜𝑖𝑐𝑒.</small></p>
+          <button type="submit" class="btn btn-success rounded-pill">Save changes</button>
+      <a href="{% url 'teachers:quiz_change' quiz.pk %}" class="btn btn-secondary col-2 mx-auto rounded-pill" role="button">Back</a>
+        </div>
       </div>
     </div>
+    <br>
   </form>
 {% endblock %}

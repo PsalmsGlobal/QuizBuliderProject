@@ -4,9 +4,11 @@
 {% load bootstrap %}
 
 {% block content %}
+<br>
 <div class="row">
+  <div class="d-flex justify-content-center">
   <div class="col-lg-5">
-<div class="card">
+<div class="card ms-5">
   <div class="card-header">
     <h3>𝑨𝒅𝒅 𝒏𝒆𝒘 𝑸𝒖𝒊𝒛</h3>
   </div>
@@ -17,7 +19,7 @@
         {% csrf_token %}
        
          {{ form| bootstrap }}
-         <div class="  col-13 mx-auto">
+         <div class="  col-13 mx-auto text-center">
         <button type="submit" class="btn btn-success rounded-pill mt-3">Save</button>
         <a href="{% url 'teachers:teacher_home' %}" class="btn btn-secondary rounded-pill mt-3" role="button">Back</a>
          </div>
@@ -26,4 +28,6 @@
 </div>
   </div>
 </div>
+</div>
+<br>
 {% endblock %}

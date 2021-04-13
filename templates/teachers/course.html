@@ -6,29 +6,30 @@
   {% if messages %}
   {% for message in messages %}
   <div class="alert alert-info text-center">
-    <h5>{{ message }} </h5>
+    {{ message }}
 </div> 
   {% endfor %}
 
 {% endif %}
+<br><br> 
 </div>    
  <div class="row">
     <div class="col-sm-4 ms-5">
       <div class="card">
         <div class="card-body bg-success">
             <a href="{% url 'teachers:add_course' %}"  class="text-light" style="text-decoration: none ;">➕ Add Course</a>
-            <br><br> <br>
+            <br><br> <br><br>
         </div>
       </div>
     </div>
     <div class="col-sm-4 ms-2">
       <div class="card">
         <div class="card-body bg-success">
-            <a href="{% url 'teachers:view_course' %}"  class="text-light" style="text-decoration: none ;">View Course</a>
-            <br><br> <br>
+            <a href="{% url 'teachers:view_course' %}"  class="text-light" style="text-decoration: none ;">👁View Course</a>
+            <br><br> <br><br>
         </div>
       </div>
     </div>
   </div>
-
+  <br><br><br><br><br><br>
   {% endblock %}

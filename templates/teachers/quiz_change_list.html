@@ -1,17 +1,22 @@
 {% extends 'teachers/base.html' %}
 
 {% block content %}
-  <div class="row">
-      <div class="col-lg-9">
-  <div class="card mt-3">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-info text-center">
-      <h5>{{ message }} </h5>
-  </div> 
-    {% endfor %}
+<div class="col-lg-9">
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-info text-center">
+  <h5>{{ message }} </h5>
+</div> 
+
+{% endfor %}
 
 {% endif %}
+</div>
+<br>
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <div class="col-lg-9">
+  <div class="card mt-3 ms-2">
     <table class="table mb-0">
       <thead>
         <tr class="bg-secondary text-center">
@@ -44,5 +49,7 @@
   </div>
       </div>
   </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br>
 
 {% endblock %}

@@ -66,9 +66,6 @@ body {
   color: #fff;
 }
 
-.content-container {
-  padding-top: 20px;
-}
 
 .sidebar-logo {
   padding: 10px 15px 10px 30px;
@@ -183,16 +180,57 @@ body {
     </div>
   </div>
 
+  <style>
+    html,body { 
+  height: 100%; 
+
+  }
+  
+  .global-container{
+  height:130%;
+  width:1160px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #581210, #062850)
+  }
+  
+  
+  .card-title{ font-weight:300;  }
+  
+  .btn{
+  font-size: 14px;
+  margin-top:20px;
+  text-align:center;
+  }
+  
+  .login-form{ 
+  width:400px;
+  background: #121312;
+  }
+  
+  .sign-up{
+  text-align:center;
+  padding:20px 0 0;
+  }
+  
+  .alert{
+  margin-bottom:-30px;
+  font-size: 13px;
+  margin-top:20px;
+  }
+  </style>
+
   <div class="content-container">
     
-    <div class="container-fluid">
   
       <!-- Main component for a primary marketing message or call to action -->
+      <div class="global-container">
       <div class="jumbotron">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-2">
                     {% block content %}
+                    
                     
                     {% endblock %}
                     <br>
@@ -201,6 +239,7 @@ body {
           </div>
       </div>
       </div>
+
 
       <div class="modal fade" id="closeModal">
         <br><br>
