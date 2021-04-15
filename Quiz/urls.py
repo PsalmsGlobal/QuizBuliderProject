@@ -41,5 +41,6 @@ path('changepassword_success/', changepassword_success, name='changepassword_suc
         path('taken/', students.TakenQuizListView.as_view(), name='taken_quiz_list'),
         path('quiz/<int:pk>/', students.take_quiz, name='take_quiz'),
         path('', students.student_home, name='student_home'),
+        path('change_password/', students.change_password, name= 'change_password'),
     ],  'quiz'), namespace='students')),    
 ]

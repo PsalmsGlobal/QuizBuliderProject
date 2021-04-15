@@ -5,6 +5,7 @@ from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.db.models import Count
+from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
 
@@ -145,4 +146,17 @@ def student_home(request):
     'total_quiz':Quiz.objects.all().count()
     }
     return render(request,'students/student_home.html',context=dict)
+
+def change_password(request):
+	if request.method == 'POST':
+		form = PasswordChangeForm(data=request.POST, user= request.user)
+		if form.is_valid():
+			form.save()
+			messages.success(request,('You Have Edited Your Password...'))
+			return redirect('changepassword_success')
+	else:
+		form = PasswordChangeForm(user= request.user)
+
+	context = {'form': form}
+	return render(request, 'students/change_password.html', context)
 
