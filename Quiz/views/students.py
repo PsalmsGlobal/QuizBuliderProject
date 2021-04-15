@@ -12,7 +12,7 @@ from django.views.generic import CreateView, ListView, UpdateView
 from ..forms import StudentInterestsForm, StudentSignUpForm, TakeQuizForm
 from ..models import Quiz, Student, TakenQuiz, User, Course, Question, Profile
 from ..decorators import student_required
-from .quiz import *
+from .quiz import send_mail_after_registration
 import uuid
 
 class StudentSignUpView(CreateView):

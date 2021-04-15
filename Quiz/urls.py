@@ -15,6 +15,7 @@ path('error/' , error_page , name="error"),
 path('change_password/', change_password, name= 'change_password'),
 path('changepassword_success/', changepassword_success, name='changepassword_success'),
 
+ 
     path('', home, name='home'),
 
     path('teachers/', include(([
@@ -24,7 +25,6 @@ path('changepassword_success/', changepassword_success, name='changepassword_suc
         path('quiz/<int:pk>/', teachers.QuizUpdateView.as_view(), name='quiz_change'),
         path('q/<int:pk>/delete/', teachers.QDeleteView.as_view(), name='q_delete'),
         path('quiz/<int:pk>/delete/', teachers.QuizDeleteView.as_view(), name='quiz_delete'),
-        #path('course/<int:pk>/delete/', teachers.CourseDeleteView.as_view(), name='course_delete'),
         path('quiz/<int:pk>/results/', teachers.QuizResultsView.as_view(), name='quiz_results'),
         path('quiz/<int:pk>/question/add/', teachers.question_add, name='question_add'),
         path('quiz/<int:quiz_pk>/question/<int:question_pk>/', teachers.question_change, name='question_change'),

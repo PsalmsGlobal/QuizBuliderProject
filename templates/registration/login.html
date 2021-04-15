@@ -5,7 +5,7 @@
 
 
 {% block content %}
-<div class="global-container bg-dark">
+  <div class="global-container bg-dark">
   <br><br><br><br><br>
   <div class="row justify-content-center">
     <div class="col-3">
@@ -29,14 +29,14 @@
         {{ form| bootstrap}}
       </div>
       <div class="text-center mt-2">
-        <a class="text-info" style="text-decoration: none ;" href="https://accounts.google.com/signin/v2/challenge/ipe?continue=https%3A%2F%2Fmyaccount.google.com%2Fsigninoptions%2Fpassword%3Fcontinue%3Dhttps%3A%2F%2Fmyaccount.google.com%2Fsecurity&service=accountsettings&osid=1&rart=ANgoxcf7l6Zzm1S9_nbYasXn9U_Fym_cxTs9A0G2uc-ZpRKAsXDi5TOXcXbMGXtuRVmlvIbSrUxCIg9vHFY5-5dPPDpoO7qlSw&TL=AM3QAYYiZ4iYO_Y6nneZSevwx5w_RWa04_tR22V_lChSXdCk5diQwy1SNi33ZS2C&flowName=GlifWebSignIn&cid=5&flowEntry=ServiceLogin&navigationDirection=forward" style="float:center;font-size:15px;" >𝐹𝑜𝑟𝑔𝑜𝑡 𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑?</a>
+        <a class="text-info" style="text-decoration: none ;" href="{% url 'password_reset' %}" style="float:center;font-size:15px;" >𝐹𝑜𝑟𝑔𝑜𝑡 𝑃𝑎𝑠𝑠𝑤𝑜𝑟𝑑?</a>
       </div>
-      <div class="text-center">
+      <div class="text-center mt-2">
         <i class="text-dark">𝑫𝒐𝒏❜𝒕 𝒉𝒂𝒗𝒆 𝒂𝒏 𝒂𝒄𝒄𝒐𝒖𝒏𝒕 ?</i>
       </div>
-      <div class="text-center mt-3">
-        <button type="submit" class="btn btn-success rounded-pill">𝑳𝒐𝒈 𝑰𝒏</button>
-        <a href="{% url 'signup' %}" style="text-decoration: none ;" class="btn btn-link mr-5 text-info" >𝑆𝑖𝑔𝑛-𝑈𝑝</a>
+      <div class="text-center ">
+        <button type="submit" class="btn btn-success">𝑳𝒐𝒈 𝑰𝒏</button>
+        <a href="{% url 'signup' %}" class="btn btn-warning">𝑆𝑖𝑔𝑛-𝑈𝑝</a>
       </div>
       <br>
       </form>

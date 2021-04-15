@@ -15,7 +15,7 @@ from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
 from ..forms import BaseAnswerInlineFormSet, QuestionForm, TeacherSignUpForm , CourseForm
 from ..decorators import teacher_required
 from ..models import Answer, Question, Quiz, User, Course, Student
-from .quiz import *
+from .quiz import send_mail_after_registration
 import uuid
 
 class TeacherSignUpView(CreateView):

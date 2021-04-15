@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
@@ -76,7 +75,7 @@ def token_send(request):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('signup')
+        return redirect('login')
 
 
 def change_password(request):
